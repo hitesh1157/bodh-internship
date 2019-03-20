@@ -1,8 +1,8 @@
 {
-  "apiKey": "AIzaSyAkYlA3pJ0mRozchtwCkwJTSPA4FJHsqQY",
-  "authDomain": "bodhuploader.firebaseapp.com",
-  "databaseURL": "https://bodhuploader.firebaseio.com",
-  "projectId": "bodhuploader",
-  "storageBucket": "bodhuploader.appspot.com",
-  "messagingSenderId": "982676235855"
+  "apiKey": "",
+  "authDomain": "",
+  "databaseURL": "",
+  "projectId": "",
+  "storageBucket": "",
+  "messagingSenderId": ""
 }

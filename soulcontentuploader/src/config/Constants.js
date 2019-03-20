@@ -1,5 +1,5 @@
-export const PRODUCTION_API = "https://api.bodh.me"
-export const STAGING_API = "https://stage-api.bodh.me"
+export const PRODUCTION_API = ""
+export const STAGING_API = ""
 const u = path => {
 	let current_env_api = STAGING_API
 	if(process.env.REACT_APP_API_ENV === "production"){
@@ -8,10 +8,10 @@ const u = path => {
 	return current_env_api + path;
 }
 
-export const RELIGION = "JAINISM"
-export const PUBLISH_TYPES = ["UNPUBLISHED_UNVERIFIED", "UNPUBLISHED_VERIFIED", "PUBLISHED_UNVERIFIED", "PUBLISHED_VERIFIED"]
-export const PLAYLIST_TYPES = ["ACADEMIC", "GENERIC"]
-export const SECTS = ["DIGAMBAR", "SVETAMBAR"]
+export const RELIGION = ""
+export const PUBLISH_TYPES = ["", "", "", ""]
+export const PLAYLIST_TYPES = ["", ""]
+export const SECTS = ["", ""]
 
 export const UPLOAD_AUDIO = u("/upload/audio")
 export const UPLOAD_THUMBNAIL = u("/upload/thumbnail")
@@ -21,7 +21,7 @@ export const CREATE_SPEAKER = u("/speaker")
 export const GET_SPEAKER = u("/speaker/")
 export const UPDATE_SPEAKER = u("/speaker/")
 export const GET_ALL_SPEAKERS = u("/speakers/" + RELIGION)
-export const SPEAKER_TYPES = ["ACHARYA", "MAHARAJ", "PANDIT", "KSHULLAK", "MATA", "BRAMHACHARI"]
+export const SPEAKER_TYPES = ["", "", "", "", "", ""]
 
 export const CREATE_LECTURE_WITH_AUDIO = u("/lecture/audio")
 export const CREATE_AUDIO_LECTURE = u("/lecture/copyAudioFromUrl")
@@ -47,7 +47,7 @@ export const CREATE_POEM = u("/poem")
 export const GET_POEM = u("/poem/")
 export const GET_ALL_POEMS = u("/poems/" + RELIGION)
 export const UPDATE_POEM = u("/poem/")
-export const POEM_TYPES = ["AARTI", "BHAJAN", "STROTRA", "BHAKTI", "POOJA", "PAATH", "CHALISA", "STUTI"]
+export const POEM_TYPES = ["", "", "", "", "", "", "", ""]
 
-export const QUILLPAD = "http://xlit.quillpad.in/quillpad_backend2/processWordJSON"
+export const QUILLPAD = ""
 export const QUILLPAD_FE = u("/quill/")
