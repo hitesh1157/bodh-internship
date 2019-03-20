@@ -1,0 +1,126 @@
+# Routes
+# This file defines all application routes (Higher priority routes first)
+# ~~~~
+
+# Home page
+GET          /                                                @controllers.ApplicationController.index()
+
+# Map static resources from the /public folder to the /assets URL path
+GET          /assets/*file                                    controllers.Assets.at(path="/public", file)
+
+GET          /health                                          @controllers.ApplicationController.health()
+
+POST         /speaker                                         @controllers.SpeakerController.create()
+PUT          /speaker/:id                                     @controllers.SpeakerController.update(id:String)
+GET          /speaker/:id                                     @controllers.SpeakerController.read(id:String)
+GET          /speaker/detail/:id                              @controllers.SpeakerController.getSpeakerDetail(id:String)
+GET          /speakers                                        @controllers.SpeakerController.getAllSpeakers()
+GET          /speakersWithPlaylist/:sect                      @controllers.SpeakerController.getSpeakersWithPlaylistSect(sect:String)
+GET          /speakersWithPlaylist                            @controllers.SpeakerController.getSpeakersWithPlaylist()
+GET          /speakers/:religion                              @controllers.SpeakerController.getAll(religion:String)
+GET          /speakers/popular/:religion/:sect                @controllers.SpeakerController.getPopularSpeakers(religion:String, sect:String)
+
+GET          /uploader/:email                                 @controllers.UploaderController.getByEmail(email:String)
+POST         /uploader                                        @controllers.UploaderController.create()
+
+POST         /feedback                                        @controllers.FeedbackController.create()
+
+POST         /lecture                                         @controllers.LectureController.create()
+POST         /lecture/audio                                   @controllers.LectureController.createWithAudio()
+POST         /lecture/copyAudioFromUrl                        @controllers.LectureController.createWithAudioUrl()
+POST         /lecture/copyVideoFromUrl                        @controllers.LectureController.createWithVideoUrl()
+PUT          /lecture/:id                                     @controllers.LectureController.update(id:String)
+GET          /lecture/:id                                     @controllers.LectureController.read(id:String)
+GET          /lectures                                        @controllers.LectureController.getAllLectures()
+GET          /lectures/:religion                              @controllers.LectureController.getAll(religion:String)
+GET          /lectures/unassigned/:religion                   @controllers.LectureController.getUnassignedLectures(religion:String)
+GET          /lectures/eligibleForPlaylist/:playlistId        @controllers.LectureController.eligibleForPlaylist(playlistId:String)
+
+POST         /playlist                                        @controllers.PlaylistController.create()
+PUT          /playlist/:id                                    @controllers.PlaylistController.update(id:String)
+GET          /playlist/:id                                    @controllers.PlaylistController.read(id:String)
+POST         /playlist/:id/add                                @controllers.PlaylistController.add(id:String)
+POST         /playlist/:id/remove                             @controllers.PlaylistController.remove(id:String)
+GET          /playlist/:id/lectures                           @controllers.PlaylistController.lectures(id:String)
+GET          /playlists                                       @controllers.PlaylistController.getAllPlaylists()
+GET          /playlists/:religion                             @controllers.PlaylistController.getAll(religion:String)
+GET          /playlists/speaker/:speakerId                    @controllers.PlaylistController.getSpeakerPlaylists(speakerId:String)
+
+POST         /category                                        @controllers.CategoryController.create()
+PUT          /category/:id                                    @controllers.CategoryController.update(id:String)
+GET          /category/:id                                    @controllers.CategoryController.read(id:String)
+POST         /category/:id/add                                @controllers.CategoryController.add(id:String)
+POST         /category/:id/remove                             @controllers.CategoryController.remove(id:String)
+GET          /category/:id/playlists                          @controllers.CategoryController.playlists(id:String)
+GET          /categories                                      @controllers.CategoryController.getAllCategories()
+PUT          /categories/reorder                              @controllers.CategoryController.reorder()
+GET          /categories/:religion                            @controllers.CategoryController.getAll(religion:String)
+GET          /categories/:religion/published                  @controllers.CategoryController.getAllPublished(religion:String)
+GET          /categories/:religion/:sect/published                  @controllers.CategoryController.getAllPublishedSect(religion:String, sect:String)
+
+POST         /poem                                            @controllers.PoemController.create()
+PUT          /poem/:id                                        @controllers.PoemController.update(id:String)
+GET          /poem/:id                                        @controllers.PoemController.read(id:String)
+GET          /poems/:religion                                 @controllers.PoemController.getAll(religion:String)
+GET          /poems/:religion/types                           @controllers.PoemController.getTypes(religion:String)
+GET          /poems/:religion/type/:poemtype                  @controllers.PoemController.getPoems(religion:String, poemtype:String)
+POST         /poem/copyAudioFromUrl                           @controllers.PoemController.createWithAudioUrl()
+
+POST         /upload/thumbnail                                @controllers.MediaController.uploadThumbnail()
+POST         /upload/audio                                    @controllers.MediaController.uploadAudio()
+POST         /upload/copyAudioFromUrl                         @controllers.MediaController.copyAudioFromUrl()
+POST         /upload/copyVideoFromUrl                         @controllers.MediaController.copyVideoFromUrl()
+
+GET          /otp/request                                     @controllers.OtpController.requestOtp(countryCode:String ?= "+91",mobile:String)
+POST         /otp/loginByOtp                                  @controllers.OtpController.loginByOtp()
+
+POST         /user/changeNumber                               @controllers.UserController.changeMobileNumber()
+POST         /user/updateGcmToken                             @controllers.UserController.updateGcmToken()
+POST         /user/updateSettings                             @controllers.UserController.updateUserSettings()
+GET          /user/updateSettings                             @controllers.UserController.readUserSettings()
+POST         /user/updateAnalytics                            @controllers.UserController.updateUserAnalytics()
+#PUT         /user/:id                                        @controllers.UserController.update(id:String)
+PUT          /user/:id/profile                                @controllers.UserController.updateProfile(id:String)
+
+POST         /message/requestsms                              @controllers.RequestSMSController.requestHandler()
+
+GET          /calender/tithis                                 @controllers.CalendarController.getTithis(month:String,year:String)
+GET          /calendar/festival/:year                         @controllers.CalendarController.getFestivals(year:String)
+GET          /quill/:name                                     @controllers.QuillController.reqGet(name:String)
+
+
+
+POST         /modifyData/addAarti                             @controllers.DataModificationController.addAarti()
+POST         /modifyData/addBhajan                            @controllers.DataModificationController.addBhajan()
+POST         /modifyData/addBhakti                            @controllers.DataModificationController.addBhakti()
+POST         /modifyData/addChalisa                           @controllers.DataModificationController.addChalisa()
+POST         /modifyData/addPooja                             @controllers.DataModificationController.addPooja()
+POST         /modifyData/addStotra                            @controllers.DataModificationController.addStotra()
+POST         /modifyData/addStuti                             @controllers.DataModificationController.addStuti()
+GET          /modifyData/assignContentMetadata                @controllers.DataModificationController.refreshContentMetadata()
+GET          /modifyData/playlists/refresh                    @controllers.DataModificationController.refreshPlaylist()
+GET          /modifyData/lectures/convertToMp3                @controllers.DataModificationController.convertToMp3()
+GET          /modifyData/lectures/removeAudioMp3              @controllers.DataModificationController.removeAudioMp3()
+GET          /modifyData/playlists/assignDefaultType          @controllers.DataModificationController.assignPlaylistType()
+
+
+GET          /credit/banner                                   @controllers.CreditsController.getBannerCredits()
+GET          /credit/screen                                   @controllers.CreditsController.getScreenCredits()
+
+
+
+POST         /mma/accommodationType                           @mma.AccommodationTypeController.create()
+GET          /mma/accommodationType/:id                       @mma.AccommodationTypeController.read(id:String)
+GET          /mma/bookingAccommodationType                    @mma.AccommodationTypeController.getBookingAccType()
+
+POST         /mma/accApplication                              @mma.AccApplicationController.create()
+GET          /mma/accApplication/:id                          @mma.AccApplicationController.read(id:String)
+GET          /mma/getUserApplications                         @mma.AccApplicationController.getUserApplications()
+PATCH        /mma/accApplication/cancel/:id                   @mma.AccApplicationController.cancel(id:String)
+PATCH        /mma/accApplication/approve/:id                  @mma.AccApplicationController.approve(id:String)
+PATCH        /mma/accApplication/reject/:id                   @mma.AccApplicationController.reject(id:String)
+GET          /mma/content/getHomePageContent                  @mma.MmaContentController.getHomePageContent()
+
+
+POST         /temple                                          @controllers.TempleController.create()
+GET          /temples                                         @controllers.TempleController.getAllTemples()

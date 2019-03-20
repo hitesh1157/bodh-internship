@@ -1,0 +1,41 @@
+.drawer {
+  .header {
+    padding: 16px;
+    text-align: left;
+    // border-bottom: 1px solid rgb(224, 224, 224);
+    background: #E1F5FE;
+    .logoff {
+      float: right;
+      background: #FFCDD2;
+      padding: 10px 12px 8px;
+      border-radius: 50%;
+      cursor: pointer;
+      &:hover {
+        background: #EF9A9A;
+      }
+    }
+    .profile-pic {
+      border-radius: 50%;
+      height: 50px;
+      width: 50px;
+      &.no-pic {
+        background: #A5D6A7;
+        padding: 15px 0;
+        margin-bottom: 8px;
+        text-align: center;
+        font-weight: bold;
+        color: #777;
+      }
+    }
+    .name, .email {
+      font-size: 0.8rem;
+      color: #777;
+    }
+    .name {
+      font-weight: 600;
+    }
+  }
+  .active {
+    background: rgba(0,0,0,0.2)
+  }
+}
